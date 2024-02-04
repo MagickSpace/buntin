@@ -23,13 +23,6 @@ export default defineConfig({
         name: "blog",
         label: "Blog",
         path: "src/content/blog",
-        ui: {
-          allowedActions: {
-            create: false,
-            delete: false,
-          },
-          router: () => '/',
-        },
         fields: [
           {
             type: "string",
