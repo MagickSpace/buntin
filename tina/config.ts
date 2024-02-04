@@ -23,6 +23,13 @@ export default defineConfig({
         name: "blog",
         label: "Blog",
         path: "src/content/blog",
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => '/',
+        },
         fields: [
           {
             type: "string",
@@ -44,6 +51,20 @@ export default defineConfig({
             required: true,
           },
           {
+            type: "reference",
+            name: "tags",
+            label: "Tags",
+            collections: ["tags"],
+            required: false,
+          },
+          {
+            type: "reference",
+            name: "category",
+            label: "Category",
+            collections: ["category"],
+            required: false,
+          },
+          {
             type: "string",
             name: "lang",
             label: "Language",
@@ -54,6 +75,9 @@ export default defineConfig({
             name: "pubDate",
             label: "Publication Date",
             required: true,
+            ui: {
+              dateFormat: "DD MMMM YYYY"
+            },
           },
           {
             type: "image",
@@ -67,6 +91,94 @@ export default defineConfig({
             label: "Body",
             isBody: true,
           },
+        ],
+      },
+      {
+        name: "category",
+        label: "Category",
+        path: "src/content/category",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "metaTitle",
+            label: "Meta Title",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "metaDescription",
+            label: "Description",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "lang",
+            label: "Language",
+            required: true,
+          },
+          {
+            type: "image",
+            name: "avatar",
+            label: "Image",
+            required: true,
+          },
+        ],
+      },
+      {
+        name: "tags",
+        label: "Tags",
+        path: "src/content/tags",
+        fields: [
+            {
+              type: "string",
+              name: "title",
+              label: "Title",
+              isTitle: true,
+              required: true,
+            },
+            {
+              type: "string",
+              name: "metaTitle",
+              label: "Meta Title",
+              required: true,
+            },
+            {
+              type: "string",
+              name: "description",
+              label: "Description",
+              required: true,
+            },
+            {
+              type: "string",
+              name: "metaDescription",
+              label: "Description",
+              required: true,
+            },
+            {
+              type: "string",
+              name: "lang",
+              label: "Language",
+              required: true,
+            },
+            {
+              type: "image",
+              name: "avatar",
+              label: "Image",
+              required: true,
+            },
         ],
       },
     ],

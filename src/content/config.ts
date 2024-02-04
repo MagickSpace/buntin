@@ -11,11 +11,35 @@ const blog = defineCollection({
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
 		lang: z.string().optional(),
+		category: z.array(z.string()).default(["others"]),
+    	tags: z.array(z.string()).default(["others"]),
 		author: z.string().optional()
 	}),
 });
 
-export const collections = { blog };
+const category = defineCollection({
+	schema: z.object({
+	  title: z.string(),
+	  meta_title: z.string().optional(),
+	  description: z.string().optional(),
+	  meta_description: z.string().optional(),
+	  image: z.string().optional(),
+	  lang: z.string().optional(),
+	}),
+  });
+
+  const tags = defineCollection({
+	schema: z.object({
+	  title: z.string(),
+	  meta_title: z.string().optional(),
+	  description: z.string().optional(),
+	  meta_description: z.string().optional(),
+	  image: z.string().optional(),
+	  lang: z.string().optional(),
+	}),
+  });
+
+export const collections = { blog, category, tags };
 
 export async function getBlogPosts() {
 	const posts = await getCollection('blog');
