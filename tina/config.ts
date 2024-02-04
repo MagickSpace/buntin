@@ -32,17 +32,10 @@ export default defineConfig({
             required: true,
           },
           {
-            type: "string",
-            name: "tags",
-            label: "Tags",
-            list: true,
-            required: false,
-          },
-          {
             label: "Author",
             name: "author",
-            type: "reference",
-            collections: ["authors"], // points to a collection with the name "author"
+            type: "string",
+            required: true,
           },
           {
             type: "string",
@@ -73,25 +66,6 @@ export default defineConfig({
             name: "body",
             label: "Body",
             isBody: true,
-          },
-        ],
-      },
-      {
-        name: "authors",
-        label: "Authors",
-        path: "src/content/authors",
-        fields: [
-          {
-            type: "string",
-            name: "name",
-            label: "Name",
-            required: true,
-          },
-          {
-            type: "image",
-            name: "avatar",
-            label: "Image",
-            required: true,
           },
         ],
       },
