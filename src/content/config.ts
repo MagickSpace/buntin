@@ -20,9 +20,9 @@ const blog = defineCollection({
 const category = defineCollection({
 	schema: z.object({
 	  title: z.string(),
-	  meta_title: z.string().optional(),
+	  metaTitle: z.string().optional(),
 	  description: z.string().optional(),
-	  meta_description: z.string().optional(),
+	  metaDescription: z.string().optional(),
 	  image: z.string().optional(),
 	  lang: z.string().optional(),
 	}),
@@ -31,9 +31,9 @@ const category = defineCollection({
   const tags = defineCollection({
 	schema: z.object({
 	  title: z.string(),
-	  meta_title: z.string().optional(),
+	  metaTitle: z.string().optional(),
 	  description: z.string().optional(),
-	  meta_description: z.string().optional(),
+	  metaDescription: z.string().optional(),
 	  image: z.string().optional(),
 	  lang: z.string().optional(),
 	}),
