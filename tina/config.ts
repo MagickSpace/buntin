@@ -23,7 +23,6 @@ export default defineConfig({
         name: "blog",
         label: "Blog",
         path: "src/content/blog",
-        format: 'md',
         fields: [
           {
             type: "string",
@@ -33,9 +32,40 @@ export default defineConfig({
             required: true,
           },
           {
+            type: "string",
+            name: "tags",
+            label: "Tags",
+            list: true,
+            required: false,
+          },
+          {
+            label: "Author",
+            name: "author",
+            type: "reference",
+            collections: ["authors"], // points to a collection with the name "author"
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "lang",
+            label: "Language",
+            required: true,
+          },
+          {
             type: "datetime",
-            name: "posted",
-            label: "Date Posted",
+            name: "pubDate",
+            label: "Publication Date",
+            required: true,
+          },
+          {
+            type: "image",
+            name: "heroImage",
+            label: "Hero Image",
             required: true,
           },
           {
@@ -46,6 +76,25 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: "authors",
+        label: "Authors",
+        path: "src/content/authors",
+        fields: [
+          {
+            type: "string",
+            name: "name",
+            label: "Name",
+            required: true,
+          },
+          {
+            type: "image",
+            name: "avatar",
+            label: "Image",
+            required: true,
+          },
+        ],
+      },
     ],
   },
-});
+})
