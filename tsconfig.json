@@ -7,6 +7,7 @@
       "DOM.Iterable"
     ],
     "target": "ESNext",
+    "types": ["@types/bun"],
     "module": "ESNext",
     "moduleDetection": "force",
     "jsx": "react-jsx",
