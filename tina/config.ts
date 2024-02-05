@@ -29,8 +29,8 @@ export default defineConfig({
         format: 'json',
         ui: {
           allowedActions: {
-            create: false,
-            delete: false,
+            create: true,
+            delete: true,
           },
           filename: {
             readonly: true,
