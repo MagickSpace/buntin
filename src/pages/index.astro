@@ -1,12 +1,45 @@
 ---
-import { client } from '../../tina/__generated__/client'
-import { MyComponent } from '@/components/react'
-const response = await client.queries.post({relativePath: "hello-world.md"})
+import Layout from "../layouts/Layout.astro";
+
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<main>
-	<!-- No way for visual editing to work with .astro components -->
-  <!-- <pre  style={{margin: '100px auto', width: '1000px'}}>{JSON.stringify(response.data.post.body, null, 2)}</pre> -->
-	<!-- Uncomment React version to see Tina working -->
-	<MyComponent client:load {...response} />
-</main>
+<Layout title={t("site.title")} description={t("site.description")} lang={lang}>
+  <h1>{t("home.welcome")}</h1>
+  <p>
+    {t("home.p1")}
+  </p>
+  <p>
+    {t("home.p2")}
+  </p>
+  <p>Here are a few ideas on how to get started with the template:</p>
+  <ul>
+    <li>Edit this page in <code>src/pages/index.astro</code></li>
+    <li>
+      Edit the site header items in <code>src/components/Header.astro</code>
+    </li>
+    <li>
+      Add your name to the footer in <code>src/components/Footer.astro</code>
+    </li>
+    <li>Check out the included blog posts in <code>src/pages/blog/</code></li>
+    <li>
+      Customize the blog post page layout in <code
+        >src/layouts/BlogPost.astro</code>
+    </li>
+  </ul>
+  <p>
+    Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
+      >read the docs
+    </a> or <a href="https://astro.build/chat">join us on Discord</a> to ask
+    questions.
+  </p>
+  <p>
+    Looking for a blog template with a bit more personality? Check out <a
+      href="https://github.com/Charca/astro-blog-template"
+      >astro-blog-template
+    </a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
+  </p>
+</Layout>
